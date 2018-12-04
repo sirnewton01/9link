@@ -1,8 +1,8 @@
 # 9Link - Proposal
 
-Current hyperlinks (URL's, URI's, URN's, ...) were designed in a world with a plethora of protocols and legacy systems attempting to allow a unified encoding of resources links that can be encoded into documents. Popular OS filesystems of the day had complex semantics and made numerous assumptions about fast, reliable and direct access to storage devices, which necessitated the light-weight concept of the resource. Provided that the system you are using (e.g. web browser) had the right capabilities, add-ons, network connectivity and system application then the resource can be accessed. There is much complexity in this chain and so much can go wrong.
+Current hyperlinks (URL's, URI's, URN's, ...) were designed in a world with a plethora of protocols and legacy systems attempting to allow a unified encoding schem for resources links that can be used in documents. Popular OS filesystems of the day had complex semantics and made numerous assumptions about fast, reliable and direct access to storage devices, which necessitated the light-weight concept of the resource. Provided that the system you are using (e.g. web browser) had the right capabilities, add-ons, network connectivity and system application then the resource can be accessed. There is much complexity in this chain and so much can go wrong.
 
-Web browsers became increasingly the single large application used to navigate all hyperlinks. Over time, many of the old protocols, such as telnet and ftp, fell into disuse and the web browsers stopped supporting them. At the current time the vast majority of links are either http or increasingly https, which is now redundant information in the link. Some web browsers now hide the prefix entirely in the address bar unless you click or copy and paste. Most anchor tags attempt to hide the links as much as possible behind a simplified description leading to link length and complexity explosions.
+Web browsers became increasingly the single large application used to navigate all hyperlinks. Over time, many of the old protocols, such as telnet and ftp, fell into disuse and the web browsers stopped supporting them. At the current time the vast majority of links are either http or increasingly https, making the protocol redundant information in every link. Some web browsers now hide the prefix entirely in the address bar unless you click or copy and paste. Most anchor tags attempt to hide the links as much as possible behind a simplified description leading to link length and complexity explosions.
 
 Meanwhile, Plan 9 was developed with a light-weight flexible filesystem protocol called 9P. This protocol removed the core assumptions that files must be on local devices and vastly simplified the file semantics over previous Unix systems. Since the OS makes it easy, fast and safe to mount 9P filesystems an application doesn't need to understand all the different protocols. Filesystems can expose capabilities from different protocols as files so that any application can access them using the simplified semantics. In this environment hyperlinks are assumed to be to other 9P resources, either local or remote. System documents and the Acme editor already take advantage of hyperlinks using relative paths, but they do not yet handle links to remote systems relying instead on the user to mount them manually. There is room for some improved automation and linking that extends beyond the local filesystem and into the internet at large.
 
@@ -43,6 +43,10 @@ In other cases line numbers are not sufficient. The line number could change and
 some/path/foo.txt:/Introduction/
 host:/my/path/foo.txt:/Let there be peace, not war/
 ```
+
+All 9Links are encoded using UTF-8 making it possible to use a very large variety of characters in the links. The only reserved characters are '!', ':', and '/' so that parsers can easily distinguish the various aspects of the link.
+
+No escaping is necessary in a 9Link. The major markup languages, such as HTML and Markdown already have mechanisms for determining the end of a link. Plan 9's Acme has ways of allowing the user to select the extent of the link that they want to navigate. Spaces are discouraged, but possible as they are for file names.
 
 ## Conclusion
 
