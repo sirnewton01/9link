@@ -1,6 +1,6 @@
 # 9Link - Proposal
 
-Current hyperlinks (URL's, URI's, URN's, ...) were designed in a world with a plethora of protocols and legacy systems attempting to allow a unified encoding schem for resources links that can be used in documents. Popular OS filesystems of the day had complex semantics and made numerous assumptions about fast, reliable and direct access to storage devices, which necessitated the light-weight concept of the resource. Provided that the system you are using (e.g. web browser) had the right capabilities, add-ons, network connectivity and system application then the resource can be accessed. There is much complexity in this chain and so much can go wrong.
+Current hyperlinks (URL's, URI's, URN's, ...) were designed in a world with a plethora of protocols and legacy systems attempting to allow a unified encoding scheme for resources links that can be used in documents. Popular OS filesystems of the day had complex semantics and made numerous assumptions about fast, reliable and direct access to storage devices, which necessitated the light-weight concept of the resource. Provided that the system you are using (e.g. web browser) had the right capabilities, add-ons, network connectivity and system application then the resource can be accessed. There is much complexity in this chain and so much can go wrong.
 
 Web browsers became increasingly the single large application used to navigate all hyperlinks. Over time, many of the old protocols, such as telnet and ftp, fell into disuse and the web browsers stopped supporting them. At the current time the vast majority of links are either http or increasingly https, making the protocol redundant information in every link. Some web browsers now hide the prefix entirely in the address bar unless you click or copy and paste. Most anchor tags attempt to hide the links as much as possible behind a simplified description leading to link length and complexity explosions.
 
@@ -10,7 +10,7 @@ Meanwhile, Plan 9 was developed with a light-weight flexible filesystem protocol
 
 ## Design
 
-What information is required in a link in order to succesfully access a file over the network? A host name (or IP address) and port number is needed to make a network connection to the remote system. Once you have access to that remote system then some sort of path is needed to address the particular file. Here are some examples.
+What information is required in a link in order to successfully access a file over the network? A host name (or IP address) and port number is needed to make a network connection to the remote system. Once you have access to that remote system then some sort of path is needed to address the particular file. Here are some examples.
 
 ```
 host!port:/my/path  # Explicit host, port and path
