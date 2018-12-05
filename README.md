@@ -6,7 +6,7 @@ Web browsers became increasingly the single large application used to navigate a
 
 Meanwhile, Plan 9 was developed with a light-weight flexible filesystem protocol called 9P. This protocol removed the core assumptions that files must be on local devices and vastly simplified the file semantics over previous Unix systems. Since the OS makes it easy, fast and safe to mount 9P filesystems an application doesn't need to understand all the different protocols. Filesystems can expose capabilities from different protocols as files so that any application can access them using the simplified semantics. In this environment hyperlinks are assumed to be to other 9P resources, either local or remote. System documents and the Acme editor already take advantage of hyperlinks using relative paths, but they do not yet handle links to remote systems relying instead on the user to mount them manually. There is room for some improved automation and linking that extends beyond the local filesystem and into the internet at large.
 
-9Link is an attempt to redesign hyperlinks given the current context and the lessons learned from existing designs. These new links should be usable in environments with rich applications, such as web browsers, and also environments where there is a unified filesystem, such as Plan 9. The focus of the design is on simplicity and consistency.
+9Link is an attempt to redesign hyperlinks given the current context and the lessons learned from existing designs. These new links should be usable in environments with rich applications, such as web browsers, and also environments where there is a unified filesystem, such as Plan 9. The focus of the design is on simplicity, consistency and readability. With better links there should be no need to hide them and then users have all of the information they need to establish their level of trust.
 
 ## Design
 
@@ -50,8 +50,9 @@ No escaping is necessary in a 9Link. The major markup languages, such as HTML an
 
 ## Conclusion
 
-The 9Link proposal redefines hyperlinks so that they have much less redundant information. They are easier to read and understand eliminating the need to hide or label them. Also, the same kinds of links can be used in the world wide web and Plan 9 systems in a consistent way. Plan 9 can make use of the 9Links to help and automate the navigation of remote links.
+The 9Link proposal redefines hyperlinks so that they have much less redundant information. They are easier to read and understand eliminating the need to hide or label them. Also, the same kinds of links can be used in the world wide web and Plan 9 systems in a consistent way. Plan 9 can make use of the 9Links to help and automate the navigation of remote files. With these changes hyperlinks can hopefully become more readable to the users allowing them to better develop their level of trust. There would be no need to hide them behind anchor tags.
 
 ## Notes
-
 The concept of URL query was intentionally omitted. They add another layer to the design, which increases complexity. Queries dynamically affect the output of a particular resource. This is both an antipattern in modern REST design and in Plan 9 filesystem design. This kind of information passing is best accomplished using a control file that configures the output of other file(s). URL queries are often misused to hack in hints from the client to the server, such as user credentials and other things. It is better to leave this out of the 9Link design.
+
+Do you have any issues with this proposal? If so, you can raise them here https://github.com/sirnewton01/9link/issues
