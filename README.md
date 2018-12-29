@@ -55,4 +55,4 @@ The 9Link proposal redefines hyperlinks so that they have much less redundant in
 ## Notes
 The concept of URL query was intentionally omitted. They add another layer to the design, which increases complexity. Queries dynamically affect the output of a particular resource. This is both an antipattern in modern REST design and in Plan 9 filesystem design. This kind of information passing is best accomplished using a control file that configures the output of other file(s). URL queries are often misused to hack in hints from the client to the server, such as user credentials and other things. It is better to leave this out of the 9Link design.
 
-Do you have any issues with this proposal? If so, you can raise them here <https://github.com/sirnewton01/9link/issues>
+Do you have any issues with this proposal? If so, you can raise them here [github.com/sirnewton01/9link/issues](https://github.com/sirnewton01/9link/issues)
